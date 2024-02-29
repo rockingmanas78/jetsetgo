@@ -9,7 +9,7 @@ import ToastMessage from '@/components/carBooking/ToastMessage';
 import { BookCreatedFlagContext } from '@/context/BookingCreatedContext';
 
 export default function Home() {
-  const [carsList, setCarsList] = useState([]);
+  const [carsList, setCarsList] = useState<any>([]);
   const [carsOrgList, setCarsOrgList] = useState<any>([]);
   const [showToast, setShowToast] = useState<boolean>(false);
 
