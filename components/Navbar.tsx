@@ -1,4 +1,4 @@
-import { UserButton } from '@clerk/nextjs'
+// import { UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import React from 'react'
 
@@ -17,7 +17,7 @@ const Navbar = () => {
             <h2 className="hover:bg-blue-500 p-2 px-5 rounded-full hover:text-white cursor-pointer">History</h2>
             <h2 className="hover:bg-blue-500 p-2 px-5 rounded-full hover:text-white cursor-pointer">Contact Us</h2>
         </div>
-        <UserButton />
+        {/* <UserButton /> */}
     </div>
   )
 }

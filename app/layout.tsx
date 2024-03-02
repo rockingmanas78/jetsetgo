@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Outfit } from 'next/font/google'
 import './globals.css'
-import { ClerkProvider, SignedIn, SignedOut, SignIn } from '@clerk/nextjs'
+// import { ClerkProvider, SignedIn, SignedOut, SignIn } from '@clerk/nextjs'
 import Navbar from '../components/Navbar'
 import Footer from '@/components/Footer'
 
@@ -19,19 +19,19 @@ export default function RootLayout({
 }) {
   return (
 
-    <ClerkProvider>
+    // <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
           {/* <SignedIn> */}
             <Navbar />
             {children}
             <Footer />
-          {/* </SignedIn> */}
+          {/* </SignedIn> */}``
           {/* <SignedOut>
             <SignIn />
           </SignedOut> */}
         </body>
       </html>
-    </ClerkProvider>
+    // </ClerkProvider>
   )
 }
