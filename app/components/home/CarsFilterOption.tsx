@@ -18,7 +18,7 @@ const CarsFilterOption = ({ carsList, setBrand, sortCarList }: any) => {
   }
 
   return (
-    <div className='mt-10 flex items-center justify-between'>
+    <div className='m-5 mt-10 sm:mx-15 md:mx-25 flex items-center justify-between'>
         <div>
             <h2 className='text-[30px] font'>Cars Catalog</h2>
             <h2 className=''>Explore our cars you might like</h2>

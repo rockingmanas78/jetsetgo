@@ -17,3 +17,52 @@ body {
   color: rgb(var(--foreground-rgb));
   
 }
+
+/* Reset margins and padding */
+body, h1, h2, h3, p {
+  padding: 0;
+}
+
+/* Apply box-shadow instead of border-bottom if you are using a border on the navbar */
+.navbar {
+  box-shadow: 0 2px 2px -2px rgba(0,0,0,.2);
+}
+
+/* Or ensure no margin is causing the gap */
+.navbar, .navbar + * {
+  margin: 0;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.hamburger-line {
+  width: 2rem;
+  height: 0.25rem;
+  background-color: white;
+  transition: all 0.3s linear;
+  position: relative;
+  transform-origin: 1px;
+}
+
+.hamburger.open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg);
+}
+
+.hamburger.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg);
+}
+
+.relative .bg-gradient-to-r {
+  background-image: linear-gradient(to right, rgba(7, 2, 3, 0.9), rgba(0, 0, 0, 0.2));
+}

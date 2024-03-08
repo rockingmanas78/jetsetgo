@@ -1,9 +1,10 @@
-import { BookCreatedFlagContext } from '@/context/BookingCreatedContext';
+import BookCreatedFlagContext from '@/context/BookingCreatedContext';
 import { createBooking } from '@/services';
 import React, { useContext, useEffect, useState } from 'react'
 
 function Form({car}:any) {
     const {showToast, setShowToast} = useContext(BookCreatedFlagContext);
+    const [loading, setLoading] = useState<boolean>(false);
     const [formValue, setFormValue] = useState({
         location: '',
         pickUpDate: '',
@@ -12,10 +13,9 @@ function Form({car}:any) {
         dropOffTime: '',
         userName: '',
         contactNumber: '',
-        carId: ""
+        email: '',
+        carId: ''
     })
-
-    const today = Date.now();
 
     useEffect(() => {
       if(car) {
@@ -35,16 +35,39 @@ function Form({car}:any) {
         });
     }
 
-    const handleSubmit = async() => {
+    const handleSubmit = async(event: React.MouseEvent<HTMLButtonElement>) => {
+        event.preventDefault(); 
+        
+        try {
+        setLoading(true);
         const resp = await createBooking(formValue);
-        // console.log(resp);
-        if(resp){
+        const response = await fetch('/api/booking', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formValue),
+        });
+        if (response.ok) {
+            const result = await response.json();
+            console.log(result);
+            setLoading(false);
             setShowToast(true);
+            setTimeout(() => {
+                setShowToast(false);
+            }, 5000);
+        } else {
+            setLoading(false);
+            console.error('Server error:', response.statusText);
+        }
+        } catch (error) {
+            setLoading(false);
+            console.error('Network error:', error);
         }
     }
 
+    const today = new Date().toISOString().split('T')[0];
+
   return (
-    <div>
+    <div className='text-sm md:text-base'>
         <div className='flex flex-col w-full mb-5'>
             <label className='text-gray-400'>Pick Up Location</label>
             <input 
@@ -65,16 +88,17 @@ function Form({car}:any) {
                 <option>Baridih</option>
             </select> */}
         </div>
-        <div className='flex flec-col gap-5 mb-5'>
+
+        <div className='flex flec-col gap-5 mb-5 '>
             <div className='flex flex-col w-full'>
                 <label className='text-gray-400'>Pick Up Date</label>
                 <input 
                     type="date"
                     min={today}
-                    name="pickupDate" 
+                    name="pickUpDate" 
                     onChange={handleChange}
                     placeholder='Type here' 
-                    className='input input-bordered w-full max-w-lg' 
+                    className='input input-bordered w-full max-w-md p-2 text-sm' 
                 />
             </div>
             <div className='flex flex-col w-full'>
@@ -84,7 +108,7 @@ function Form({car}:any) {
                     name="dropOffDate" 
                     onChange={handleChange}
                     placeholder='Type here' 
-                    className='input input-bordered w-full max-w-lg' 
+                    className='input input-bordered w-full max-w-md p-2 text-sm' 
                 />
             </div>
         </div>
@@ -94,7 +118,7 @@ function Form({car}:any) {
                 <label className='text-gray-400'>Pick Up Time</label>
                 <input 
                     type="time"
-                    name="pickupTime" 
+                    name="pickUpTime" 
                     onChange={handleChange}
                     placeholder='Type here' 
                     className='input input-bordered w-full max-w-lg' 
@@ -117,7 +141,7 @@ function Form({car}:any) {
                 <span className='text-gray-400'>Name: </span>
                 <input 
                     type="text" 
-                    name="customerName" 
+                    name="userName" 
                     onChange={handleChange}
                     className='grow' 
                 />
@@ -136,10 +160,22 @@ function Form({car}:any) {
                 />
             </label>
         </div>
+        <div className='flex flex-col w-full mb-5'>
+            <label className="input input-bordered flex items-center gap-3">
+                <span className='text-gray-400'>Email: </span>
+                <input 
+                    type="text" 
+                    name="email" 
+                    onChange={handleChange}
+                    className='grow' 
+                    placeholder='abc@gmail.com' 
+                />
+            </label>
+        </div>
 
         <div className="modal-action">
               <button className="btn">Close</button>
-              <button className='btn bg-blue-500 text-white hover:bg-blue-800' onClick={handleSubmit}>Save</button>
+              <button className='btn bg-blue-500 text-white hover:bg-blue-800' onClick={handleSubmit}>{loading ? <span className="loading loading-dots loading-md"></span>: "Save"}</button>
           </div>
     </div>
   )

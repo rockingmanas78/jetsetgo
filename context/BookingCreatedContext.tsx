@@ -1,3 +1,7 @@
-import { createContext } from "react";
+import { createContext, useContext } from 'react';
 
-export const BookCreatedFlagContext = createContext<any> (null);
+const BookCreatedFlagContext = createContext<any>(null);
+
+export const useBookCreatedFlag = () => useContext(BookCreatedFlagContext);
+
+export default BookCreatedFlagContext;
