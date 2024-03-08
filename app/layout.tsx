@@ -3,8 +3,6 @@ import { Outfit, Red_Hat_Display } from 'next/font/google'
 import './globals.css'
 import Navbar from './components/Navbar.client'
 import Footer from './components/Footer'
-import SessionWrapper from "./components/SessionWrapper"
-import { getServerSession } from 'next-auth'
 
 const inter = Outfit({ subsets: ['latin'] })
 
@@ -18,7 +16,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const session = await getServerSession();
   return (
       <html lang="en">
         {/* <SessionWrapper session={session}> */}

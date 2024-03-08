@@ -1,7 +1,6 @@
 "use client"
 import Image from 'next/image';
 import React, { useState } from 'react';
-import { signIn, signOut, useSession } from 'next-auth/react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
