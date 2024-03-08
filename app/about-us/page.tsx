@@ -1,9 +1,15 @@
 import React from 'react';
 import Logo from "../../public/logo.png";
 import Image from 'next/image';
+import Head from 'next/head';
 
 const AboutUs = () => {
   return (
+    <>
+        <Head>
+          <title>About Jet Set Go Cabs - Leading Cab and Car Rental Service in Jamshedpur & Ranchi</title>
+          <meta name="description" content="Discover more about Jet Set Go Cabs, Jamshedpur's leading car rental and cab booking service. Learn about our mission to provide safe, reliable, and comfortable transportation solutions. Know our story."/>
+      </Head>
     <div className="max-w-6xl mx-auto px-4 py-8">
       <h1 className="text-2xl md:text-4xl font-bold text-center mb-4">About Jet Set Go Cabs</h1>
       <p className="text-lg text-center mb-8">Your trusted partner for comfortable and reliable cabs in Jamshedpur and Ranchi</p>
@@ -33,6 +39,7 @@ const AboutUs = () => {
         {/* Add team members' profiles here */}
       </div>
     </div>
+    </>
   );
 };
 

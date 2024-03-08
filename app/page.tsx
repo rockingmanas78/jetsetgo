@@ -8,6 +8,7 @@ import CarsList from '@/app/components/home/CarsList';
 import ToastMessage from '@/app/components/carBooking/ToastMessage';
 import { useToast } from '@/context/BookingCreatedContext';
 import ContactUsForm from './components/ContactUsForm';
+import Head from 'next/head';
 
 export default function Home() {
   const [carsList, setCarsList] = useState<any>([]);
@@ -50,6 +51,10 @@ export default function Home() {
 
   return (
     <div>
+      <Head>
+        <title>Jet Set Go Cabs: Premier Car Rental and Cab Booking Services in Jamshedpur and Ranchi | Get Your Ride</title>
+        <meta name="description" content="Experience top-notch car rental and cab booking with Jet Set Go Cabs. Whether you're looking for Ranchi airport cabs or Tata Ranchi cab services, we've got you covered. Book your hassle-free ride today!"/>
+      </Head>
         <Hero scrollToCarsList={scrollToCarsList} />
         {/* <SearchInput /> */}
         <CarsFilterOption carsList={carsOrgList} 

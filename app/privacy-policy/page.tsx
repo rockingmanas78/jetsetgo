@@ -1,7 +1,13 @@
+import Head from 'next/head';
 import React from 'react';
 
 const PrivacyPolicy = () => {
   return (
+    <>
+        <Head>
+            <title>Privacy Policy | Jet Set Go Cabs - Your Trusted Cab Service Partner</title>
+            <meta name="description" content="Your privacy matters to us. Read Jet Set Go Cabs' Privacy Policy to understand how we collect, use, and protect your information when you book a cab or car rental with us in Jamshedpur & Ranchi"/>
+      </Head>
     <div className="max-w-4xl mx-auto p-5">
         <h1 className="text-2xl md:text-3xl font-bold text-center my-3 md:my-6">Privacy Policy</h1>
         <p className="text-sm text-gray-500 text-center mb-6">Last updated: March 08, 2024</p>
@@ -165,6 +171,7 @@ const PrivacyPolicy = () => {
 </li>
 </ul>
     </div>
+    </>
   );
 };
 
