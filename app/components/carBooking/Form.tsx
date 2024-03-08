@@ -1,9 +1,9 @@
-import BookCreatedFlagContext from '@/context/BookingCreatedContext';
+import { useToast } from '@/context/BookingCreatedContext';
 import { createBooking } from '@/services';
 import React, { useContext, useEffect, useState } from 'react'
 
 function Form({car}:any) {
-    const {showToast, setShowToast} = useContext(BookCreatedFlagContext);
+    const { showToast, toastMessage, setToast } = useToast();
     const [loading, setLoading] = useState<boolean>(false);
     const [formValue, setFormValue] = useState({
         location: '',
@@ -50,9 +50,9 @@ function Form({car}:any) {
             const result = await response.json();
             console.log(result);
             setLoading(false);
-            setShowToast(true);
+            setToast({ showToast: true, toastMessage: 'Booking Created Sussesfully!' })
             setTimeout(() => {
-                setShowToast(false);
+                setToast({ showToast: false, toastMessage: ''});
             }, 5000);
         } else {
             setLoading(false);
@@ -68,28 +68,18 @@ function Form({car}:any) {
 
   return (
     <div className='text-sm md:text-base'>
-        <div className='flex flex-col w-full mb-5'>
+        <div className='flex flex-col w-full mb-2 md:mb-5'>
             <label className='text-gray-400'>Pick Up Location</label>
             <input 
                 type='text' 
                 name="location" 
                 onChange={handleChange}
                 placeholder='Type Your Pickup Address' 
-                className='input input-bordered w-full max-w-lg'
+                className='input input-bordered w-full max-w-lg p-2 md:p-4'
             />
-            {/* <select className="select select-bordered w-full max-w-xs">
-                <option disabled selected>Pickup Location</option>
-                <option>Kadma</option>
-                <option>Sonari</option>
-                <option>Bistupur</option>
-                <option>Sakchi</option>
-                <option>Mango</option>
-                <option>Sidhgora</option>
-                <option>Baridih</option>
-            </select> */}
         </div>
 
-        <div className='flex flec-col gap-5 mb-5 '>
+        <div className='flex flec-col gap-5 mb-2 md:mb-5 '>
             <div className='flex flex-col w-full'>
                 <label className='text-gray-400'>Pick Up Date</label>
                 <input 
@@ -98,7 +88,7 @@ function Form({car}:any) {
                     name="pickUpDate" 
                     onChange={handleChange}
                     placeholder='Type here' 
-                    className='input input-bordered w-full max-w-md p-2 text-sm' 
+                    className='input input-bordered w-full max-w-md p-2 md:p-4 text-sm' 
                 />
             </div>
             <div className='flex flex-col w-full'>
@@ -108,12 +98,12 @@ function Form({car}:any) {
                     name="dropOffDate" 
                     onChange={handleChange}
                     placeholder='Type here' 
-                    className='input input-bordered w-full max-w-md p-2 text-sm' 
+                    className='input input-bordered w-full max-w-md p-2 md:p-4 text-sm' 
                 />
             </div>
         </div>
 
-        <div className='flex flec-col gap-5 mb-5'>
+        <div className='flex flec-col gap-5 mb-2 md:mb-5'>
             <div className='flex flex-col w-full'>
                 <label className='text-gray-400'>Pick Up Time</label>
                 <input 
@@ -136,7 +126,7 @@ function Form({car}:any) {
             </div>
         </div>
 
-        <div className='flex flex-col w-full mb-5'>
+        <div className='flex flex-col w-full mb-2 md:mb-5'>
             <label className="input input-bordered flex items-center gap-3">
                 <span className='text-gray-400'>Name: </span>
                 <input 
@@ -148,7 +138,7 @@ function Form({car}:any) {
             </label>
         </div>
 
-        <div className='flex flex-col w-full mb-5'>
+        <div className='flex flex-col w-full mb-2 md:mb-5'>
             <label className="input input-bordered flex items-center gap-3">
                 <span className='text-gray-400'>Contact: </span>
                 <input 
@@ -160,7 +150,7 @@ function Form({car}:any) {
                 />
             </label>
         </div>
-        <div className='flex flex-col w-full mb-5'>
+        <div className='flex flex-col w-full mb-2 md:mb-5'>
             <label className="input input-bordered flex items-center gap-3">
                 <span className='text-gray-400'>Email: </span>
                 <input 

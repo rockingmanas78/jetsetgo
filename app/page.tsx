@@ -6,14 +6,15 @@ import SearchInput from "./components/home/SearchInput";
 import { getCarsList } from '@/services';
 import CarsList from '@/app/components/home/CarsList';
 import ToastMessage from '@/app/components/carBooking/ToastMessage';
-import BookCreatedFlagContext from '@/context/BookingCreatedContext';
+import { useToast } from '@/context/BookingCreatedContext';
+import ContactUsForm from './components/ContactUsForm';
 
 export default function Home() {
   const [carsList, setCarsList] = useState<any>([]);
   const [carsOrgList, setCarsOrgList] = useState<any>([]);
-  const [showToast, setShowToast] = useState<boolean>(false);
   const [carsLoaded, setCarsLoaded] = useState<boolean>(false);
   const exploreCarsRef = useRef<HTMLDivElement>(null);
+  const { showToast, toastMessage, setToast } = useToast();
 
   const scrollToCarsList = () => {
       exploreCarsRef.current?.scrollIntoView({
@@ -48,17 +49,16 @@ export default function Home() {
 
 
   return (
-    <div className='m-0 p-0'>
-      <BookCreatedFlagContext.Provider value={{showToast, setShowToast}}>
+    <div>
         <Hero scrollToCarsList={scrollToCarsList} />
-        <SearchInput />
+        {/* <SearchInput /> */}
         <CarsFilterOption carsList={carsOrgList} 
             setBrand={(value:string) => filterCarList(value)}
             sortCarList={(value:string) => sortCarList(value)}
             />
         <CarsList ref={exploreCarsRef} carsList={carsList} carsLoaded={carsLoaded} />
-        {showToast && <ToastMessage mssg={`Booking Created Successfully`} />}
-      </BookCreatedFlagContext.Provider>
+        <ContactUsForm />
+        {showToast && <ToastMessage mssg={toastMessage} />}
     </div>
   )
 }

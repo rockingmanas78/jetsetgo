@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import Logo from "../../../public/logo.png";
 
   
 export async function POST(req: NextRequest, res: NextResponse) {
@@ -14,14 +13,15 @@ export async function POST(req: NextRequest, res: NextResponse) {
             </div>
             <h2 style="text-align: center; font-size: 24px; margin-bottom: 20px;">Booking Details</h2>
             <div>
+                <p><strong>User Name:</strong> ${userName}</p>
+                <p><strong>Contact Number:</strong> ${contactNumber}</p>
+                <p><strong>Customer Email:</strong> ${email}</p>
                 <p><strong>Location:</strong> ${location}</p>
                 <p><strong>Pick-Up Date:</strong> ${pickUpDate}</p>
                 <p><strong>Drop-Off Date:</strong> ${dropOffDate}</p>
                 <p><strong>Pick-Up Time:</strong> ${pickUpTime}</p>
                 <p><strong>Drop-Off Time:</strong> ${dropOffTime}</p>
-                <p><strong>User Name:</strong> ${userName}</p>
-                <p><strong>Contact Number:</strong> ${contactNumber}</p>
-                <p><strong>Customer Email:</strong> ${email}</p>
+                <p><strong>Car Id:</strong> ${carId}</p>
             </div>
         </div>
     `;

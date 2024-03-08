@@ -16,7 +16,6 @@ const CarCard = (props: any) => {
     
   return car && (
         <div className='group bg-gray-50 p-2 hover:bg-white rounded-xl hover:border-[1px] cursor-pointer duration-75 border-blue-500 m-2 md:m-3 gap-2'>
-            
 
             <h2 className='text-[20px] font-medium mb-2'>{car.name}</h2>
             <h2 className='text-[28px] font-bold mb-2'>

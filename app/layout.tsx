@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
-import { Outfit, Red_Hat_Display } from 'next/font/google'
+import { Outfit, } from 'next/font/google'
 import './globals.css'
 import Navbar from './components/Navbar.client'
 import Footer from './components/Footer'
+import { ToastProvider } from '@/context/BookingCreatedContext'
 
 const inter = Outfit({ subsets: ['latin'] })
 
@@ -19,11 +20,14 @@ export default async function RootLayout({
   return (
       <html lang="en">
         {/* <SessionWrapper session={session}> */}
-          <body className={`${inter.className}`}>
+        <ToastProvider>
+          <body className={`${inter.className} min-h-screen`}>
               <Navbar />
               {children}
               <Footer />
           </body>
+        </ToastProvider>
+          
         {/* </SessionWrapper> */}
       </html>
   )

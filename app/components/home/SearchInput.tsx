@@ -2,10 +2,10 @@ import React from 'react'
 
 const SearchInput = () => {
   return (
-    <div className='mt-10 sm:mx-20 md:mx-30 p-10'>
+    <div className='w-4/5 m-0 mt-10 sm:mx-10 md:mx-20'>
         <h2 className='text-center text-[20px] mb-3 text-gray-400'>Let's search what you need</h2>
         <div className='flex justify-center'>
-          <div className='flex bg-gray-100 p-1 px-5 gap-2 rounded-full divide-x mx-5'>
+          <div className='flex bg-gray-100 p-1 px-5 gap-2 rounded-full divide-x'>
             <div className='flex items-center'>
               <svg 
                   xmlns="http://www.w3.org/2000/svg" 
