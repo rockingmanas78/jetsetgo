@@ -36,6 +36,7 @@ export async function POST(req: NextRequest) {
             </div>
             </div>
         `;
+        console.log(process.env.NEXT_PUBLIC_CONTACT_MAIL_USERNAME);
 
         // Configuration for nodemailer
         const transporter = nodemailer.createTransport({
@@ -44,7 +45,7 @@ export async function POST(req: NextRequest) {
             secure: false,
             auth: {
                 user: "support@jetsetgocabs.com",
-                pass: process.env.NEXT_PUBLIC_CONTACT_MAIL_PASSWORD,
+                pass: process.env.NEXT_PUBLIC_CONTACT_MAIL_USERNAME,
             },
         });
 
