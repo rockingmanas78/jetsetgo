@@ -87,7 +87,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
       });
     });
     await sendMailPromise(mailOptions);
-    await sendMailPromise(userMailOptions);
+    //await sendMailPromise(userMailOptions);
 
     return NextResponse.json({ message: 'Booking Successfully Created!' });
   } catch (error) {
