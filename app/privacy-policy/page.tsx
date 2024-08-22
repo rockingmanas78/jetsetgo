@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Script from 'next/script';
 import React from 'react';
 
 const PrivacyPolicy = () => {
@@ -7,18 +8,14 @@ const PrivacyPolicy = () => {
         <Head>
             <title>Privacy Policy | Jet Set Go Cabs - Your Trusted Cab Service Partner</title>
             <meta name="description" content="Your privacy matters to us. Read Jet Set Go Cabs' Privacy Policy to understand how we collect, use, and protect your information when you book a cab or car rental with us in Jamshedpur & Ranchi"/>
-            <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GNE6KRMLR">
-            </script>
-            <script
-              dangerouslySetInnerHTML={{
-                __html: `
-                  window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments);}
-                  gtag('js', new Date());
-                  gtag('config', 'G-5GNE6KRMLR');
-                `,
-              }}
-            />
+            <Script async src="https://www.googletagmanager.com/gtag/js?id=G-5GNE6KRMLR" />
+            <Script id="google-analytics">
+              {`window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-5GNE6KRMLR');
+              `}
+            </Script>
       </Head>
     <div className="max-w-4xl mx-auto p-5">
         <h1 className="text-2xl md:text-3xl font-bold text-center my-3 md:my-6">Privacy Policy</h1>

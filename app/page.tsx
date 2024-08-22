@@ -9,6 +9,7 @@ import ToastMessage from '@/app/components/carBooking/ToastMessage';
 import { useToast } from '@/context/BookingCreatedContext';
 import ContactUsForm from './components/ContactUsForm';
 import Head from 'next/head';
+import Script from 'next/script';
 
 export default function Home() {
   const [carsList, setCarsList] = useState<any>([]);
@@ -54,18 +55,14 @@ export default function Home() {
       <Head>
         <title>Jet Set Go Cabs: Premier Car Rental and Cab Booking Services in Jamshedpur and Ranchi | Get Your Ride</title>
         <meta name="description" content="Experience top-notch car rental and cab booking with Jet Set Go Cabs. Whether you're looking for Ranchi airport cabs or Tata Ranchi cab services, we've got you covered. Book your hassle-free ride today!"/>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GNE6KRMLR">
-        </script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-5GNE6KRMLR');
-            `,
-          }}
-        />
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-5GNE6KRMLR" />
+        <Script id="google-analytics">
+          {`window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-5GNE6KRMLR');
+          `}
+        </Script>
       </Head>
         <Hero scrollToCarsList={scrollToCarsList} />
         {/* <SearchInput /> */}
