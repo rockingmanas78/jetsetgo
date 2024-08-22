@@ -21,7 +21,7 @@ const CarCard = (props: any) => {
 <h2 className='text-[28px] font-bold mb-2'>
     <span className='text-[12px] font-light'>₹</span>
     <span className='text-[20px] font-thin text-gray-700 line-through mr-2'>
-        ₹{(car.price * 10 / 9).toFixed(0)}
+        {(car.price * 10 / 9).toFixed(0)}
     </span>
     {car.price}
     <span className='text-[12px] font-light'> /day </span> {"  "}
