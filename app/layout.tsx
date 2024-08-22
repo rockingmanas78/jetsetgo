@@ -5,6 +5,7 @@ import Navbar from './components/Navbar.client'
 import Footer from './components/Footer'
 import { ToastProvider } from '@/context/BookingCreatedContext'
 import Head from 'next/head'
+import Script from 'next/script'
 
 const inter = Outfit({ subsets: ['latin'] })
 
@@ -20,6 +21,21 @@ export default async function RootLayout({
 }) {
   return (
       <html lang="en">
+        <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-5GNE6KRMLR"
+        />
+
+        <Script id="google-analytics">
+          {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '5GNE6KRMLR');
+          `}
+        </Script>
+        </head>
         {/* <SessionWrapper session={session}> */}
         <ToastProvider>
           <body className={`${inter.className} min-h-screen`}>
