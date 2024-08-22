@@ -20,19 +20,6 @@ export default async function RootLayout({
 }) {
   return (
       <html lang="en">
-        <Head>
-          <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GNE6KRMLR"></script>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', 'G-5GNE6KRMLR');
-              `,
-            }}
-          />
-        </Head>
         {/* <SessionWrapper session={session}> */}
         <ToastProvider>
           <body className={`${inter.className} min-h-screen`}>

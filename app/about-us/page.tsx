@@ -9,6 +9,18 @@ const AboutUs = () => {
         <Head>
           <title>About Jet Set Go Cabs - Leading Cab and Car Rental Service in Jamshedpur & Ranchi</title>
           <meta name="description" content="Discover more about Jet Set Go Cabs, Jamshedpur's leading car rental and cab booking service. Learn about our mission to provide safe, reliable, and comfortable transportation solutions. Know our story."/>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-5GNE6KRMLR">
+        </script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-5GNE6KRMLR');
+            `,
+          }}
+        />
       </Head>
     <div className="max-w-6xl mx-auto px-4 py-8">
       <h1 className="text-2xl md:text-4xl font-bold text-center mb-4">About Jet Set Go Cabs</h1>
