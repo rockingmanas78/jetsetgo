@@ -32,7 +32,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
                 <img src="https://jetsetgocabs.com/_next/image?url=%2Flogo.webp&w=384&q=75" alt="Company Logo" style="max-width: 100px;">
             </div>
             <h2 style="text-align: center; font-size: 24px; margin-bottom: 20px;">Booking Details</h2>
-            <div>
+            <div style="color: white;">
                 <p><strong>Booking Name:</strong> ${userName}</p>
                 <p><strong>Contact Number:</strong> ${contactNumber}</p>
                 <p><strong>Location:</strong> ${location}</p>

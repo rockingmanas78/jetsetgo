@@ -17,11 +17,16 @@ const CarCard = (props: any) => {
   return car && (
         <div className='group bg-gray-50 p-2 hover:bg-white rounded-xl hover:border-[1px] cursor-pointer duration-75 border-blue-500 m-2 md:m-3 gap-2'>
 
-            <h2 className='text-[20px] font-medium mb-2'>{car.name}</h2>
-            <h2 className='text-[28px] font-bold mb-2'>
-            <span className='text-[12px] font-light'>₹</span>
-            {car.price} 
-            <span className='text-[12px] font-light'> /day</span></h2>
+<h2 className='text-[20px] font-medium mb-2'>{car.name}</h2>
+<h2 className='text-[28px] font-bold mb-2'>
+    <span className='text-[12px] font-light'>₹</span>
+    <span className='text-[20px] font-thin text-gray-700 line-through mr-2'>
+        ₹{(car.price * 10 / 9).toFixed(0)}
+    </span>
+    {car.price}
+    <span className='text-[12px] font-light'> /day </span> {"  "}
+    <span className='text-[15px] font-light'>- (8Hrs / 80Kms)</span>
+</h2>
             
             <Image src={car.image?.url}
                 alt={car.name}
