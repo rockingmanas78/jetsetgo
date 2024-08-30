@@ -48,9 +48,6 @@ export async function POST(req: NextRequest, res: NextResponse) {
             </div>
         </div>
     `;
-
-    console.log(process.env.NEXT_PUBLIC_MAIL_USERNAME);
-    console.log(process.env.NEXT_PUBLIC_MAIL_PASSWORD);
     // Create transporter for sending emails
     const transporter = nodemailer.createTransport({
       host: "smtp.privateemail.com",
