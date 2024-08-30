@@ -34,9 +34,9 @@ const Navbar = () => {
       
       <div className={`hidden flex-col justify-center md:relative md:flex items-start gap-5 text-white top-0 h-full md:h-auto w-[250px] md:w-auto bg-[#0c1f2f] p-5 md:p-0 transition-transform duration-300 ease-in-out ${isMenuOpen ? 'translate-x-0' : '-translate-x-full'} left-0 z-40`}>
         <div className='flex flex-col justify-between h-1/4 md:flex-row md:gap-5'>
-          <a href="#" className="hover:bg-blue-500 p-2 rounded-full hover:text-white cursor-pointer">Home</a>
-          <a href="#" className="hover:bg-blue-500 p-2 rounded-full hover:text-white cursor-pointer">History</a>
-          <a href="#" className="hover:bg-blue-500 p-2 rounded-full hover:text-white cursor-pointer">Contact Us</a>
+          <a href="#" className="hover:bg-[#436286] p-2 rounded-full hover:text-white cursor-pointer">Home</a>
+          <a href="#" className="hover:bg-[#436286] p-2 rounded-full hover:text-white cursor-pointer">About Us</a>
+          <a href="#" className="hover:bg-[#436286] p-2 rounded-full hover:text-white cursor-pointer">Contact Us</a>
         </div>
         {/* {session ? (
           <div className='flex flex-col md:flex-row md:items-center md:gap-5 mt-5 md:mt-0'>

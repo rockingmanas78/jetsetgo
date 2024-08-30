@@ -17,6 +17,13 @@ const ContactUsForm = () => {
 
     const handleSubmit = async (e: any) => {
         e.preventDefault();
+        if (formData.email.length === 0 || formData.name.length === 0 && formData.message.length === 0) {
+            setToast({ showToast: true, toastMessage: 'Form Submitted Successfully!' })
+            setTimeout(() => {
+                setToast({ showToast: false, toastMessage: ''});
+            }, 3000);
+            return;
+        }
         try {
             setLoading(true);
             const response = await fetch(`/api/contact`, {
@@ -55,7 +62,7 @@ const ContactUsForm = () => {
                     <textarea name="message" id="message" rows={4} value={formData.message} onChange={handleChange} className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"></textarea>
                 </div>
                 <div className="text-center">
-                    <button type="submit" className="inline-flex justify-center w-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    <button type="submit" className="inline-flex justify-center w-full py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#003D60] hover:bg-[#436286] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#436286]">
                         {loading ? <span className="loading loading-dots loading-md"></span>: "Send Message"}
                     </button>
                 </div>

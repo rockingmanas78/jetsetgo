@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import CarImage from "../../../public/hero-car.png";
+import CarImage from "../../../public/sedan-image.jpg";
 import { Montserrat } from 'next/font/google';
 const montserrat = Montserrat({ subsets: ['latin'] })
 import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
@@ -31,11 +31,11 @@ const Hero = (props: any) => {
     </h2>
 
     {/* Why Ride with Us List */}
-    <div className='w-4/5 mt-8 bg-white p-6 rounded-lg shadow-inner'>
-        <h3 className='text-[24px] font-semibold text-blue-600 mb-4'>
+    <div className='w-full md:w-4/5 mt-8 bg-white p-6 rounded-lg shadow-inner'>
+        <h3 className='text-[20px] md:text-[24px] font-semibold text-[#003D60] mb-4'>
         Why Ride with Us?
         </h3>
-        <ul className='list-inside list-disc space-y-3 text-gray-700 text-[18px]'>
+        <ul className='list-inside list-disc space-y-1 md:space-y-3 text-gray-700 text-[12px] md:text-[18px]'>
         <li>Reliable, safe, and comfortable intercity travel.</li>
         <li>24/7 service with professional drivers.</li>
         <li>Premium cars at affordable rates.</li>
@@ -47,13 +47,13 @@ const Hero = (props: any) => {
     <div className='mt-8 text-center'>
         <button
         onClick={scrollToCarsList}
-        className='py-3 px-8 bg-blue-600 text-white text-[18px] font-semibold rounded-full hover:scale-110 hover:bg-blue-700 transition-transform duration-300'
+        className='py-3 px-8 bg-[#193855] text-white text-[18px] font-semibold rounded-full hover:scale-110 hover:bg-[#436286] transition-transform duration-300'
         >
         Explore Cars
         </button>
     </div>
     </div>
-        <div>
+        <div className='flex items-center justify-center'>
             <Image src={CarImage} alt='Car' height={400} width={500} className='w-9/12 object-cover align-center' />
         </div>
     </div>

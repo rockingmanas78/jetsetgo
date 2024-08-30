@@ -10,6 +10,8 @@ import { useToast } from '@/context/BookingCreatedContext';
 import ContactUsForm from './components/ContactUsForm';
 import Head from 'next/head';
 import Script from 'next/script';
+import WhyChooseUs from './components/home/WhyChooseUs';
+import Quote from './components/home/Quote';
 
 export default function Home() {
   const [carsList, setCarsList] = useState<any>([]);
@@ -71,6 +73,8 @@ export default function Home() {
             sortCarList={(value:string) => sortCarList(value)}
             />
         <CarsList ref={exploreCarsRef} carsList={carsList} carsLoaded={carsLoaded} />
+        <Quote />
+        <WhyChooseUs />
         <ContactUsForm />
         {showToast && <ToastMessage mssg={toastMessage} />}
     </div>
